@@ -9,13 +9,13 @@
     // Función para crear el botón
     function createScrollToTopButton(options = {}) {
         const defaultOptions = {
-            backgroundColor: "#333",
-            textColor: "#fff",
-            hoverBackgroundColor: "#555",
-            animationDuration: 900
+            backgroundColor: "#333", // Color de fondo por defecto
+            textColor: "#fff",       // Color de texto por defecto
+            hoverBackgroundColor: "#555", // Color de fondo cuando pasas el mouse
+            animationDuration: 900   // Duración por defecto de la animación
         };
 
-        // Si no se pasan opciones personalizadas, se usan las predeterminadas
+        // Si se pasan opciones personalizadas, las combina con las predeterminadas
         const finalOptions = Object.assign({}, defaultOptions, options);
 
         // Evita crear el botón si ya existe
@@ -25,7 +25,7 @@
         button.id = "scrollToTopBtn";
         button.innerHTML = "&#8679;";
 
-        // Los estilos ahora usan las opciones pasadas (predeterminadas o personalizadas)
+        // Estilos combinados (por defecto o personalizados)
         const buttonStyles = {
             position: "fixed",
             bottom: "20px",
@@ -50,6 +50,7 @@
             boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.3)",
         };
 
+        // Asigna los estilos directamente sin los valores predeterminados innecesarios
         Object.assign(button.style, buttonStyles);
 
         // Efectos hover
@@ -63,15 +64,15 @@
             button.style.transform = "scale(1)";
         };
 
-        // Agregar el botón al cuerpo
+        // Agregar el botón al DOM
         document.body.appendChild(button);
 
-        // Event listener para hacer scroll hacia arriba
+        // Añadir el evento para hacer scroll hacia arriba
         button.addEventListener("click", function () {
             smoothScrollToTop(finalOptions.animationDuration);
         });
 
-        // Mostrar/ocultar el botón según el scroll
+        // Mostrar u ocultar el botón según el desplazamiento de la página
         window.addEventListener("scroll", function () {
             if (window.scrollY > 300) {
                 button.style.opacity = "1";
@@ -117,7 +118,9 @@
     return function (options) {
         // Solo se pasa opciones personalizadas si existen
         if (options && Object.keys(options).length > 0) {
-            createScrollToTopButton(options);
+            createScrollToTopButton(options); // Aplica los estilos personalizados si se pasan
+        } else {
+            createScrollToTopButton(); // Si no se pasan, usa los valores predeterminados
         }
     };
 });
