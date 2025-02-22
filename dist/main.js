@@ -13,10 +13,8 @@
             animationDuration: 900
         };
 
-        // Combinamos las opciones por defecto con las proporcionadas
         const finalOptions = Object.assign({}, defaultOptions, options);
 
-        // Evitamos crear el botón si ya existe
         if (document.getElementById("scrollToTopBtn")) return;
 
         const button = document.createElement("button");
