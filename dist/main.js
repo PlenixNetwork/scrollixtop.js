@@ -6,11 +6,19 @@
     }
 })(typeof window !== "undefined" ? window : this, function () {
     function createScrollToTopButton(options = {}) {
-        if (document.getElementById("scrollToTopBtn")) return;
+        console.log("Creando botón de scroll to top...");
 
+        // Verificar si el botón ya existe
+        if (document.getElementById("scrollToTopBtn")) {
+            console.log("El botón ya existe, no se creará uno nuevo.");
+            return;
+        }
+
+        // Crear el botón
         const button = document.createElement("button");
         button.id = "scrollToTopBtn";
         button.innerHTML = "&#8679;";
+        console.log("Botón creado");
 
         const defaultStyles = {
             position: "fixed",
@@ -36,24 +44,34 @@
             boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.3)",
         };
 
+        // Aplicar los estilos al botón
         Object.assign(button.style, defaultStyles);
+        console.log("Estilos aplicados al botón");
 
+        // Efectos al pasar el ratón
         button.onmouseover = function () {
+            console.log("Mouse over");
             button.style.background = options.hoverBackgroundColor || "#555";
             button.style.transform = "scale(1.15)";
         };
 
         button.onmouseout = function () {
+            console.log("Mouse out");
             button.style.background = options.backgroundColor || "#333";
             button.style.transform = "scale(1)";
         };
 
+        // Añadir el botón al DOM
         document.body.appendChild(button);
+        console.log("Botón añadido al DOM");
 
+        // Añadir evento al hacer clic
         button.addEventListener("click", function () {
+            console.log("Botón clickeado, scroll to top");
             smoothScrollToTop();
         });
 
+        // Mostrar el botón al hacer scroll
         window.addEventListener("scroll", function () {
             if (window.scrollY > 300) {
                 button.style.opacity = "1";
@@ -87,7 +105,9 @@
         requestAnimationFrame(animateScroll);
     }
 
+    // Llamar a la creación del botón directamente
     return function (options) {
+        console.log("Iniciando ScrollToTop con opciones:", options);
         createScrollToTopButton(options);
     };
 });
