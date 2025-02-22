@@ -5,6 +5,8 @@
         global.ScrollToTop = factory();
     }
 })(typeof window !== "undefined" ? window : this, function () {
+
+    // Función para crear el botón
     function createScrollToTopButton(options = {}) {
         const defaultOptions = {
             backgroundColor: "#333",
@@ -95,9 +97,19 @@
         requestAnimationFrame(animateScroll);
     }
 
-    createScrollToTopButton();
+    // Asegurarse de que el DOM esté completamente cargado antes de ejecutar cualquier cosa
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+            createScrollToTopButton(); // Usará los valores predeterminados
+        });
+    } else {
+        createScrollToTopButton(); // Si ya está listo el DOM, ejecuta directamente
+    }
 
     return function (options) {
-        createScrollToTopButton(options);
+        // Llama a la función solo si se pasan opciones personalizadas
+        if (options && Object.keys(options).length > 0) {
+            createScrollToTopButton(options);
+        }
     };
 });
