@@ -2,11 +2,12 @@
     if (typeof module === "object" && typeof module.exports === "object") {
         module.exports = factory();
     } else {
-        global.ScrollToTop = factory();
-        global.ScrollToTop();
+        global.ScrollToTop = function(options) {
+            factory(options);
+        };
     }
-})(typeof window !== "undefined" ? window : this, function () {
-    function createScrollToTopButton(options = {}) {
+})(typeof window !== "undefined" ? window : this, function (options = {}) {
+    function createScrollToTopButton(options) {
         if (document.getElementById("scrollToTopBtn")) return;
 
         const button = document.createElement("button");
