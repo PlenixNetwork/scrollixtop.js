@@ -15,15 +15,18 @@
             animationDuration: 900
         };
 
+        // Si no se pasan opciones personalizadas, se usan las predeterminadas
         const finalOptions = Object.assign({}, defaultOptions, options);
 
+        // Evita crear el botón si ya existe
         if (document.getElementById("scrollToTopBtn")) return;
 
         const button = document.createElement("button");
         button.id = "scrollToTopBtn";
         button.innerHTML = "&#8679;";
 
-        const defaultStyles = {
+        // Los estilos ahora usan las opciones pasadas (predeterminadas o personalizadas)
+        const buttonStyles = {
             position: "fixed",
             bottom: "20px",
             right: "20px",
@@ -47,8 +50,9 @@
             boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.3)",
         };
 
-        Object.assign(button.style, defaultStyles);
+        Object.assign(button.style, buttonStyles);
 
+        // Efectos hover
         button.onmouseover = function () {
             button.style.background = finalOptions.hoverBackgroundColor;
             button.style.transform = "scale(1.15)";
@@ -59,12 +63,15 @@
             button.style.transform = "scale(1)";
         };
 
+        // Agregar el botón al cuerpo
         document.body.appendChild(button);
 
+        // Event listener para hacer scroll hacia arriba
         button.addEventListener("click", function () {
             smoothScrollToTop(finalOptions.animationDuration);
         });
 
+        // Mostrar/ocultar el botón según el scroll
         window.addEventListener("scroll", function () {
             if (window.scrollY > 300) {
                 button.style.opacity = "1";
@@ -76,6 +83,7 @@
         });
     }
 
+    // Función para hacer el scroll suave hacia arriba
     function smoothScrollToTop(duration) {
         let currentPosition = window.scrollY;
         const start = performance.now();
@@ -100,14 +108,14 @@
     // Asegurarse de que el DOM esté completamente cargado antes de ejecutar cualquier cosa
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
-            createScrollToTopButton(); // Usará los valores predeterminados
+            createScrollToTopButton(); // Usará los valores predeterminados si no se pasa nada
         });
     } else {
         createScrollToTopButton(); // Si ya está listo el DOM, ejecuta directamente
     }
 
     return function (options) {
-        // Llama a la función solo si se pasan opciones personalizadas
+        // Solo se pasa opciones personalizadas si existen
         if (options && Object.keys(options).length > 0) {
             createScrollToTopButton(options);
         }
