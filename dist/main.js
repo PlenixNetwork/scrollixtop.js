@@ -2,12 +2,10 @@
     if (typeof module === "object" && typeof module.exports === "object") {
         module.exports = factory();
     } else {
-        global.ScrollToTop = function(options) {
-            factory(options);
-        };
+        global.ScrollToTop = factory();
     }
-})(typeof window !== "undefined" ? window : this, function (options = {}) {
-    function createScrollToTopButton(options) {
+})(typeof window !== "undefined" ? window : this, function () {
+    function createScrollToTopButton(options = {}) {
         if (document.getElementById("scrollToTopBtn")) return;
 
         const button = document.createElement("button");
@@ -90,8 +88,6 @@
     }
 
     return function (options) {
-        document.addEventListener("DOMContentLoaded", function () {
-            createScrollToTopButton(options);
-        });
+        createScrollToTopButton(options);
     };
 });
