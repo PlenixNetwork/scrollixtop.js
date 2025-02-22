@@ -6,6 +6,15 @@
     }
 })(typeof window !== "undefined" ? window : this, function () {
     function createScrollToTopButton(options = {}) {
+        const defaultOptions = {
+            backgroundColor: "#333",
+            textColor: "#fff",
+            hoverBackgroundColor: "#555",
+            animationDuration: 900
+        };
+
+        const finalOptions = Object.assign({}, defaultOptions, options);
+
         if (document.getElementById("scrollToTopBtn")) return;
 
         const button = document.createElement("button");
@@ -19,8 +28,8 @@
             width: "50px",
             height: "50px",
             borderRadius: "50%",
-            background: options.backgroundColor || "#333",
-            color: options.textColor || "#fff",
+            background: finalOptions.backgroundColor,
+            color: finalOptions.textColor,
             border: "none",
             cursor: "pointer",
             fontSize: "34px",
@@ -39,19 +48,19 @@
         Object.assign(button.style, defaultStyles);
 
         button.onmouseover = function () {
-            button.style.background = options.hoverBackgroundColor || "#555";
+            button.style.background = finalOptions.hoverBackgroundColor;
             button.style.transform = "scale(1.15)";
         };
 
         button.onmouseout = function () {
-            button.style.background = options.backgroundColor || "#333";
+            button.style.background = finalOptions.backgroundColor;
             button.style.transform = "scale(1)";
         };
 
         document.body.appendChild(button);
 
         button.addEventListener("click", function () {
-            smoothScrollToTop();
+            smoothScrollToTop(finalOptions.animationDuration);
         });
 
         window.addEventListener("scroll", function () {
@@ -65,9 +74,8 @@
         });
     }
 
-    function smoothScrollToTop() {
+    function smoothScrollToTop(duration) {
         let currentPosition = window.scrollY;
-        const duration = 900;
         const start = performance.now();
 
         function animateScroll(timestamp) {
