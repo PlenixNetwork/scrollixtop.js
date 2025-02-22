@@ -95,9 +95,7 @@
         requestAnimationFrame(animateScroll);
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-        createScrollToTopButton();
-    });
+    createScrollToTopButton();
 
     return function (options) {
         createScrollToTopButton(options);
