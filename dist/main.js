@@ -95,6 +95,8 @@
         requestAnimationFrame(animateScroll);
     }
 
+    createScrollToTopButton();
+
     return function (options) {
         createScrollToTopButton(options);
     };
