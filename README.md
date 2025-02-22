@@ -24,7 +24,7 @@ The function accepts the following parameters:
 - textColor: The color of the text (the up arrow).
 - hoverBackgroundColor: The background color when the button is hovered.
 
-# Example usage:
+### Example usage:
 ```html
 <script>
     // Call the ScrollToTop function to customize button colors
