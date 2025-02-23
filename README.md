@@ -13,7 +13,7 @@ A simple JavaScript library to add a "Scroll to Top" button with smooth scrollin
 You can use this library via **jsDelivr CDN**:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/plenixnetwork/scroll-to-top-js/dist/main.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/PlenixNetwork/scroll-to-top-js/dist/main.js"></script>
 ```
 ## 🎨 Customization
 You can customize the appearance of the "Scroll to Top" button by calling the ScrollToTop function and passing an object with color properties.
