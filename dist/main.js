@@ -15,7 +15,16 @@
             hoverBorderColor: "#fff",
             borderColor: "#fff",
             borderSize: "2px",
-            animationDuration: 900
+            animationDuration: 900,
+            bottom: "20px",
+            right: "20px",
+            width: "50px",
+            height: "50px",
+            borderRadius: "50%",
+            fontSize: "34px",
+            icon: "&#8679;",
+            zIndex: "1000",
+            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.3)"
         };
 
         const finalOptions = Object.assign({}, defaultOptions, options);
@@ -24,30 +33,30 @@
 
         const button = document.createElement("button");
         button.id = "scrollToTopBtn";
-        button.innerHTML = "&#8679;";
+        button.innerHTML = finalOptions.icon;
 
         const buttonStyles = {
             position: "fixed",
-            bottom: "20px",
-            right: "20px",
-            width: "50px",
-            height: "50px",
-            borderRadius: "50%",
+            bottom: finalOptions.bottom,
+            right: finalOptions.right,
+            width: finalOptions.width,
+            height: finalOptions.height,
+            borderRadius: finalOptions.borderRadius,
             background: finalOptions.backgroundColor,
             color: finalOptions.textColor,
             border: `${finalOptions.borderSize} solid ${finalOptions.borderColor}`,
             cursor: "pointer",
-            fontSize: "34px",
+            fontSize: finalOptions.fontSize,
             fontWeight: "bold",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             textAlign: "center",
-            zIndex: "1000",
+            zIndex: finalOptions.zIndex,
             opacity: "0",
             transform: "translateY(20px)",
             transition: "opacity 0.4s ease, transform 0.4s ease, background 0.3s ease, transform 0.3s ease, border 0.3s ease, color 0.3s ease",
-            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.3)"
+            boxShadow: finalOptions.boxShadow
         };
 
         Object.assign(button.style, buttonStyles);
