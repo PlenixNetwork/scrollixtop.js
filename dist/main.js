@@ -1,3 +1,37 @@
+/**
+ * Scrollixtop.js - A customizable "Scroll to Top" button for web pages.
+ * @version 2.0.0
+ * @author Plenix Network
+ * @license MIT
+ *
+ * Usage: 
+ * 1. Include this script in your HTML file.
+ * 2. Call `ScrollToTop()` to create the button with default settings.
+ * 3. Pass an options object to `ScrollToTop(options)` to customize the button.
+ * Example:
+ * ScrollToTop({ 
+ *   backgroundColor: "#000",
+ *   textColor: "#fff",
+ *   hoverBackgroundColor: "#444",
+ *   hoverTextColor: "#fff",
+ *   hoverBorderColor: "#fff",
+ *   borderColor: "#fff",
+ *   borderSize: "2px",
+ *   animationDuration: 500,
+ *   bottom: "30px",
+ *   right: "30px",
+ *   width: "60px",
+ *   height: "60px",
+ *   borderRadius: "50%",
+ *   fontSize: "36px",
+ *   icon: "&#8679;", // Unicode for up arrow
+ *   zIndex: "1000",
+ *   boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.3)"
+ * });
+ *
+ * This script creates a "Scroll to Top" button that appears when the user scrolls down the page.
+ */
+
 (function (global, factory) {
     if (typeof module === "object" && typeof module.exports === "object") {
         module.exports = factory();
