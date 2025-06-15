@@ -1,4 +1,4 @@
-# Plenix - Scroll To Top JS  
+# Scrollixtop.js
 
 A simple JavaScript library to add a "Scroll to Top" button with smooth scrolling and customizable styles.
 
@@ -14,7 +14,7 @@ A simple JavaScript library to add a "Scroll to Top" button with smooth scrollin
 You can use this library via **jsDelivr CDN**:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/PlenixNetwork/scroll-to-top-js/dist/main.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/PlenixNetwork/scrollixtop.js/dist/main.js"></script>
 ```
 
 ## 🎨 Customization
