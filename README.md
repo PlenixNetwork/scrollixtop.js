@@ -2,12 +2,24 @@
 
 A simple JavaScript library to add a "Scroll to Top" button with smooth scrolling and customizable styles.
 
-## 🚀 Features
+---
+
+## ✨ Why Scrollixtop.js
+
 - 🆙 Automatically adds a "Scroll to Top" button when the user scrolls down.
 - 🎨 Fully customizable colors, position, size, icon, and effects.
 - 📜 Smooth scrolling animation.
 - 🔄 Button appears and disappears with a fade-in/out effect.
 - 🛠 Adjustable z-index and box-shadow for better UI integration.
+
+---
+
+## 👀 See Demo
+
+Check out the live demo of Scrollixtop.js in action:  
+[Scrollixtop.js Demo](https://plenixnetwork.github.io/scrollixtop.js/)
+
+---
 
 ## 📦 Installation
 
